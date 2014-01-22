@@ -2,36 +2,9 @@
 
 namespace TIG.Todo.Common
 {
-    public class TodoItem : Bindable
+    public class TodoItem //TODO: 2.0 - Inherit from Bindable in order get support for INotifyPropertyChanged
     {
-        private string _text;
-        public string Text
-        {
-            [DebuggerStepThrough]
-            get { return _text; }
-            set
-            {
-                if (value == _text)
-                    return;
-
-                _text = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _isCompleted;
-        public bool IsCompleted
-        {
-            [DebuggerStepThrough]
-            get { return _isCompleted; }
-            set
-            {
-                if (value == _isCompleted)
-                    return;
-
-                _isCompleted = value;
-                OnPropertyChanged();
-            }
-        }
+        //TODO: 2.1 - Create a string property named Text that calls OnPropertyChanged so when it is set it will notify it has changed
+        //TODO: 2.2 - Create a bool property named IsCompleted that notifies when it has changed (HINT: same process as TODO: 2.1)
     }
 }

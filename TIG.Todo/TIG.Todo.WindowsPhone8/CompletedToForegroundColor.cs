@@ -6,6 +6,7 @@ using System.Windows.Media;
 
 namespace TIG.Todo.WindowsPhone8
 {
+    //TODO: 4 - Reading about IValueConverter http://msdn.microsoft.com/en-us/library/system.windows.data.ivalueconverter(v=vs.110).aspx
     public class CompletedToForegroundColor : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

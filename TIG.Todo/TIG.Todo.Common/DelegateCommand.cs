@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace TIG.Todo.Common
 {
+    //TODO: 1 - Reading about ICommand and DelegateCommand<T>
+    //http://msdn.microsoft.com/en-us/library/system.windows.input.icommand(v=vs.110).aspx
+    //http://stackoverflow.com/questions/11960488/any-winrt-icommand-commandbinding-implementaiton-samples-out-there
     public class DelegateCommand<T> : ICommand
     {
         readonly Func<T, bool> canExecute;
