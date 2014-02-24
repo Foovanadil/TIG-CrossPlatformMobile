@@ -5,7 +5,6 @@
                             xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                            xmlns:common="clr-namespace:TIG.Todo.Common;assembly=TIG.Todo.Common"
                             xmlns:windowsPhone8="clr-namespace:TIG.Todo.WindowsPhone8"
                             mc:Ignorable="d"
                             FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -18,7 +17,7 @@
         <windowsPhone8:CompletedToForegroundColor x:Key="CompletedToForegroundColor" />
     </phone:PhoneApplicationPage.Resources>
     <phone:PhoneApplicationPage.DataContext>
-        <common:TodoListViewModel />
+        <windowsPhone8:TodoListViewModel />
     </phone:PhoneApplicationPage.DataContext>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
