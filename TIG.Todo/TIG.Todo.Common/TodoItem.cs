@@ -15,7 +15,7 @@ namespace TIG.Todo.Common
                     return;
 
                 _text = value;
-                OnPropertyChanged();
+				OnPropertyChanged("Text");
             }
         }
 
@@ -30,7 +30,7 @@ namespace TIG.Todo.Common
                     return;
 
                 _isCompleted = value;
-                OnPropertyChanged();
+				OnPropertyChanged("IsCompleted");
             }
         }
     }

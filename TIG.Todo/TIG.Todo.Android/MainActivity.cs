@@ -12,9 +12,8 @@ namespace TIG.Todo.Android
 	[Activity (Label = "TIG.Todo.Android", MainLauncher = true)]
 	public class MainActivity : Activity
 	{
-		int count = 1;
-
-		private TodoListViewModel viewModel;
+		private TaskManager taskManager;
+		ListView taskListView;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -23,27 +22,25 @@ namespace TIG.Todo.Android
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			viewModel = CreateViewModel();
+			taskManager = new TaskManager();
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.tigButton);
-			
+			Button button = FindViewById<Button> (Resource.Id.addButton);
+			taskListView = FindViewById<ListView> (Resource.Id.listTasks);
+
 			button.Click += delegate {
-
-				var todoText = FindViewById<EditText>(Resource.Id.todoItemText);
-
-				viewModel.NewTodoItem.Text = todoText.Text;
-				viewModel.AddCommand.Execute(null);
-
-
-				button.Text = string.Format ("{0} clicks!", count++);
+				var todoText = FindViewById<EditText> (Resource.Id.todoItemText);
+				taskManager.NewTodoItem.Text = todoText.Text;
+				taskManager.AddTodoItem();
 			};
 		}
 
-		TodoListViewModel CreateViewModel ()
+		protected override void OnResume ()
 		{
-			return new TodoListViewModel();
+			base.OnResume ();
+			var taskListAdapter = new TaskListAdapter (this, taskManager.TodoItems);
+			taskListView.Adapter = taskListAdapter;
 		}
 	}
 }
