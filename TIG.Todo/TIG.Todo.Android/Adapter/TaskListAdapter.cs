@@ -49,6 +49,10 @@ namespace TIG.Todo.Android
 					parent, 
 					false));
 
+			//Cannot just return convertView if it exists. When items are removed the views need to be
+			//	updated otherwise the UI data will be wrong. Adding items after removal also results in
+			//	an incorrect UI.
+
 			var textView = (TextView)view.FindViewById (Resource.Id.textView);
 			textView.SetText (item.Text, TextView.BufferType.Normal);
 			textView.TextChanged += (object sender, global::Android.Text.TextChangedEventArgs e) => {

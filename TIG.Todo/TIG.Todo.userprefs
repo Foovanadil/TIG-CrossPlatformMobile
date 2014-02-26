@@ -1,19 +1,14 @@
-﻿<Properties>
+﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TIG.Todo.Android\Adapter\TaskListAdapter.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="TIG.Todo.Common\Bindable.cs" Line="1" Column="1" />
-      <File FileName="TIG.Todo.Common\TaskManager.cs" Line="1" Column="1" />
-      <File FileName="TIG.Todo.Common\TodoItem.cs" Line="1" Column="1" />
-      <File FileName="TIG.Todo.Android\MainActivity.cs" Line="33" Column="1" />
-      <File FileName="TIG.Todo.Android\Adapter\TaskListAdapter.cs" Line="52" Column="8" />
-      <File FileName="TIG.Todo.Android\Resources\values\Strings.xml" Line="1" Column="1" />
-      <File FileName="TIG.Todo.Android\Resources\Resource.designer.cs" Line="1" Column="1" />
+      <File FileName="TIG.Todo.Android\MainActivity.cs" Line="29" Column="51" />
+      <File FileName="TIG.Todo.Android\Resources\values\Strings.xml" Line="3" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.TIG.Todo.Android MonoForAntroid.PreferredDevice="3.7in WVGA (Nexus One)" AndroidDeviceId-Debug="emulator-5554" />
+  <MonoDevelop.Ide.ItemProperties.TIG.Todo.Android MonoForAntroid.PreferredDevice="3.7in WVGA (Nexus One)" AndroidDeviceId-Debug="192.168.56.101:5555" />
 </Properties>
