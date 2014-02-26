@@ -1,8 +1,5 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-VisualStudioVersion = {0}
-MinimumVisualStudioVersion = {0}
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIG.Todo.WindowsPhone8", "TIG.Todo.WindowsPhone8\TIG.Todo.WindowsPhone8.csproj", "{2323A97C-0862-405A-A320-77EE0AD0CB31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIG.Todo.Android", "TIG.Todo.Android\TIG.Todo.Android.csproj", "{FF466019-7739-45A5-8974-F052267A9F41}"

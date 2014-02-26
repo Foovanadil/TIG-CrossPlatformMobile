@@ -45,16 +45,22 @@ namespace TIG.Todo.Android
 			// will sound familiar to MonoTouch developers with UITableViewCell.DequeueReusableCell()
 			var view = (convertView ?? 
 				context.LayoutInflater.Inflate(
-					global::Android.Resource.Layout.SimpleListItemChecked,
+					Resource.Layout.TodoItemView,
 					parent, 
-					false)) as CheckedTextView;
-
-			view.SetText (item.Text, TextView.BufferType.Normal);
-			view.Checked = item.IsCompleted;
+					false));
+			var text = (TextView)view.FindViewById (Resource.Id.textView);
+			text.SetText (item.Text, TextView.BufferType.Normal);
+			var checkBoxDone = (CheckBox)view.FindViewById (Resource.Id.checkBoxDone);
+			checkBoxDone.Checked = item.IsCompleted;
+			var deleteButton = (Button)view.FindViewById (Resource.Id.deleteButton);
+			deleteButton.Click += (object sender, EventArgs e) => {
+				tasks.Remove(item);
+			};
 
 			//Finally return the view
 			return view;
 		}
+
 	}
 }
 

@@ -7,32 +7,15 @@ namespace TIG.Todo.WindowsPhone8
     public class TodoListViewModel : Bindable
     {
         private readonly TaskManager taskManager = new TaskManager();
+
         public ObservableCollection<TodoItem> TodoItems
         {
-            [DebuggerStepThrough]
             get { return taskManager.TodoItems; }
-            set
-            {
-                if (value == taskManager.TodoItems)
-                    return;
-
-                taskManager.TodoItems = value;
-                OnPropertyChanged("TodoItems");
-            }
         }
 
         public TodoItem NewTodoItem
         {
-            [DebuggerStepThrough]
             get { return taskManager.NewTodoItem; }
-            set
-            {
-                if (value == taskManager.NewTodoItem)
-                    return;
-
-                taskManager.NewTodoItem = value;
-                OnPropertyChanged("NewTodoItem");
-            }
         }
 
         private DelegateCommand<object> _addCommand;

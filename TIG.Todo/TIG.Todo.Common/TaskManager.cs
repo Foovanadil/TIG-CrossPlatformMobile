@@ -25,6 +25,7 @@ namespace TIG.Todo.Common
             TodoItems.Add(NewTodoItem);
             NewTodoItem = new TodoItem();
         }
+
         public void RemoveItem(TodoItem todoItem)
         {
             TodoItems.Remove(todoItem);

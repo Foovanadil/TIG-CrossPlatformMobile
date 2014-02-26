@@ -33,5 +33,10 @@ namespace TIG.Todo.Common
 				OnPropertyChanged("IsCompleted");
             }
         }
+
+		public override string ToString ()
+		{
+			return Text;
+		}
     }
 }
