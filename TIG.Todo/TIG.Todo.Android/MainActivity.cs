@@ -31,15 +31,12 @@ namespace TIG.Todo.Android
 				var todoText = FindViewById<EditText> (Resource.Id.todoItemText);
 				taskManager.NewTodoItem.Text = todoText.Text;
 				taskManager.AddTodoItem();
+				todoText.Text = "";
 			};
 
 			var taskListView = FindViewById<ListView> (Resource.Id.listTasks);
 			var taskListAdapter = new TaskListAdapter (this, taskManager.TodoItems);
 			taskListView.Adapter = taskListAdapter;
-			taskListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
-				var checkedView = e.View as CheckedTextView;
-				checkedView.Checked = ! checkedView.Checked;
-			};
 		}
 
 //		protected override void OnResume ()

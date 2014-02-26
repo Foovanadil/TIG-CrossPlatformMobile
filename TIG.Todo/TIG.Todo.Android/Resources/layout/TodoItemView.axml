@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+<LinearLayout xmlns:a="http://schemas.android.com/apk/res/android"
+    a:orientation="horizontal"
+    a:layout_width="fill_parent"
+    a:layout_height="wrap_content">
     <CheckBox
-        android:id="@+id/checkBoxDone"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        a:id="@+id/checkBoxDone"
+        a:layout_width="wrap_content"
+        a:layout_height="match_parent" />
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/textView" />
+        a:layout_width="fill_parent"
+        a:layout_height="match_parent"
+        a:layout_weight="1"
+        a:gravity="center_vertical"
+        a:id="@+id/textView" />
     <Button
-        android:text="Delete"
-        android:layout_width="75dp"
-        android:layout_height="match_parent"
-        android:id="@+id/deleteButton" />
+        a:text="Delete"
+        a:layout_width="75dp"
+        a:layout_height="match_parent"
+        a:id="@+id/deleteButton" />
 </LinearLayout>

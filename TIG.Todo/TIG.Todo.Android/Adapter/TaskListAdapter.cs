@@ -48,10 +48,19 @@ namespace TIG.Todo.Android
 					Resource.Layout.TodoItemView,
 					parent, 
 					false));
-			var text = (TextView)view.FindViewById (Resource.Id.textView);
-			text.SetText (item.Text, TextView.BufferType.Normal);
+
+			var textView = (TextView)view.FindViewById (Resource.Id.textView);
+			textView.SetText (item.Text, TextView.BufferType.Normal);
+			textView.TextChanged += (object sender, global::Android.Text.TextChangedEventArgs e) => {
+				item.Text = textView.Text;
+			};
+
 			var checkBoxDone = (CheckBox)view.FindViewById (Resource.Id.checkBoxDone);
 			checkBoxDone.Checked = item.IsCompleted;
+			checkBoxDone.CheckedChange += (object sender, CompoundButton.CheckedChangeEventArgs e) => {
+				item.IsCompleted = checkBoxDone.Checked;
+			};
+
 			var deleteButton = (Button)view.FindViewById (Resource.Id.deleteButton);
 			deleteButton.Click += (object sender, EventArgs e) => {
 				tasks.Remove(item);
