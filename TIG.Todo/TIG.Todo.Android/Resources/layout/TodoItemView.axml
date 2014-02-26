@@ -3,19 +3,23 @@
     a:orientation="horizontal"
     a:layout_width="fill_parent"
     a:layout_height="wrap_content">
-    <CheckBox
+    <--TODO: 5.0 - Uncomment UI elements: note Ids-->
+    <--TODO: 5.1 - CheckBox: Standard checkable UI element-->
+    <!--<CheckBox
         a:id="@+id/checkBoxDone"
         a:layout_width="wrap_content"
-        a:layout_height="match_parent" />
-    <TextView
+        a:layout_height="match_parent" />-->
+    <--TODO: 5.2 - TextView: Non-editable text/label-->
+    <!--<TextView
         a:layout_width="fill_parent"
         a:layout_height="match_parent"
         a:layout_weight="1"
         a:gravity="center_vertical"
-        a:id="@+id/textView" />
-    <Button
+        a:id="@+id/textView" />-->
+    <--TODO: 5.3 - Button -->
+    <!--<Button
         a:text="Delete"
         a:layout_width="75dp"
         a:layout_height="match_parent"
-        a:id="@+id/deleteButton" />
+        a:id="@+id/deleteButton" />-->
 </LinearLayout>

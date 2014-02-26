@@ -3,29 +3,30 @@
     a:orientation="vertical"
     a:layout_width="fill_parent"
     a:layout_height="fill_parent">
-	<!--TODO: 1.0 - Open Main.axml - On the bottom of the view click "Source" to view the xml representation of the UI. -->
-	<!--TODO: 1.1 - Double click TIG.Todo.Android project to open it's options. Select "Android Build" and uncheck fast assembly deployment.
-    				(Not doing this may result in failed deployments) -->
-	<!--TODO: 1.2 - Add UI Elements (Uncomment below elements. Note their Ids and layout settings)-->
-
-    <LinearLayout
+<!--TODO: 2.0 - Add UI Elements (Uncomment below elements.
+				Note their Ids and layout settings)-->
+<!--TODO: 2.1 - LinearLayout: A panel used for UI layout-->
+<!--<LinearLayout
         a:orientation="horizontal"
         a:layout_width="match_parent"
         a:layout_height="wrap_content"
-        a:id="@+id/linearLayout1">
-    <EditText
+        a:id="@+id/linearLayout1">-->
+<!--TODO: 2.2 - EditText: Editable text box-->
+<!--<EditText
             a:id="@+id/todoItemText"
             a:layout_weight="1"
             a:layout_width="fill_parent"
-            a:layout_height="match_parent" />
-    <Button
+            a:layout_height="match_parent" />-->
+<!--TODO: 2.3 - Button: Clickable UI Element-->
+<!--<Button
             a:id="@+id/addButton"
             a:text="@string/add"
             a:layout_width="75dp"
-            a:layout_height="match_parent" />
-    </LinearLayout>
-    <ListView
+            a:layout_height="match_parent" />-->
+<!--</LinearLayout>-->
+<!--TODO: 2.4 - ListView: List control capable of observing changes in source collections that support change notifications-->
+<!--<ListView
         a:id="@+id/listTasks"
         a:layout_width="fill_parent"
-        a:layout_height="fill_parent" />
+        a:layout_height="fill_parent" />-->
 </LinearLayout>

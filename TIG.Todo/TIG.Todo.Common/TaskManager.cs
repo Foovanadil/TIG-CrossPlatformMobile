@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace TIG.Todo.Common
 {
+	//TODO: 0.0 - Note that this class in the previous version of the WP8 App was a view model.
     public class TaskManager
     {
         private ObservableCollection<TodoItem> _todoItems = new ObservableCollection<TodoItem>();
