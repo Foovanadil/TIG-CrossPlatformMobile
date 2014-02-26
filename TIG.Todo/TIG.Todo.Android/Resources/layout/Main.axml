@@ -3,6 +3,10 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+<!--TODO: 1.0 - Open Main.axml - On the bottom of the view click "Source" to view the xml representation of the UI. -->
+<!--TODO: 1.1 - Double click TIG.Todo.Android project to open it's options. Select "Android Build" and uncheck fast assembly deployment.
+    				(Not doing this may result in failed deployments) -->
+<!--TODO: 1.2 - Add UI Elements (Uncomment below elements. Note their Ids and layout settings)-->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
