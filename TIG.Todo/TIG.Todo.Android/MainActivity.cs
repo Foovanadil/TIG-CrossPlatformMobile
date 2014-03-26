@@ -6,10 +6,11 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using TIG.Todo.Common;
+using Android.Content.PM;
 
 namespace TIG.Todo.Android
 {
-	[Activity (Label = "TIG.Todo.Android", MainLauncher = true)]
+	[Activity (Label = "TIG.Todo.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
 	public class MainActivity : Activity
 	{
 		private TaskManager taskManager;

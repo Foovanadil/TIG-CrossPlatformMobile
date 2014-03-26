@@ -4,6 +4,7 @@ using Android.Widget;
 using Android.App;
 using System.Collections.ObjectModel;
 using Android.Views;
+using Android.Graphics;
 
 namespace TIG.Todo.Android
 {
@@ -37,6 +38,9 @@ namespace TIG.Todo.Android
 
 		public override View GetView (int position, View convertView, ViewGroup parent)
 		{
+			// flag so we don't add new event handlers
+			bool newView = (convertView == null) ? true : false;
+
 			// Get our object for position
 			var item = tasks[position];			
 
@@ -51,20 +55,26 @@ namespace TIG.Todo.Android
 
 			var textView = (TextView)view.FindViewById (Resource.Id.textView);
 			textView.SetText (item.Text, TextView.BufferType.Normal);
-			textView.TextChanged += (object sender, global::Android.Text.TextChangedEventArgs e) => {
-				item.Text = textView.Text;
-			};
+			textView.SetTextColor(item.IsCompleted ? Color.Green : Color.WhiteSmoke);
 
 			var checkBoxDone = (CheckBox)view.FindViewById (Resource.Id.checkBoxDone);
 			checkBoxDone.Checked = item.IsCompleted;
-			checkBoxDone.CheckedChange += (object sender, CompoundButton.CheckedChangeEventArgs e) => {
-				item.IsCompleted = checkBoxDone.Checked;
-			};
 
 			var deleteButton = (Button)view.FindViewById (Resource.Id.deleteButton);
-			deleteButton.Click += (object sender, EventArgs e) => {
-				tasks.Remove(item);
-			};
+
+			// only hookup handlers if this is the first time inflating our TodoItemView.
+			if (newView) {
+				checkBoxDone.CheckedChange += (object sender, CompoundButton.CheckedChangeEventArgs e) => {
+					// figure out item when checkchange happens, not during creation of event handler
+					tasks[position].IsCompleted = checkBoxDone.Checked;
+					this.NotifyDataSetChanged ();					// need to tell the adapter that something happened.
+				};
+
+				deleteButton.Click += (object sender, EventArgs e) => {
+					// figure out item when click happens, not during creation of event handler
+					tasks.Remove(tasks[position]);
+				};
+			}
 
 			//Finally return the view
 			return view;
