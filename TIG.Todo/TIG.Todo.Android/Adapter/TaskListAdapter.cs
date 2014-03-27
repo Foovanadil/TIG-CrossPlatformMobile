@@ -55,7 +55,6 @@ namespace TIG.Todo.Android
 
 			var textView = (TextView)view.FindViewById (Resource.Id.textView);
 			textView.SetText (item.Text, TextView.BufferType.Normal);
-			textView.SetTextColor(item.IsCompleted ? Color.Green : Color.WhiteSmoke);
 
 			var checkBoxDone = (CheckBox)view.FindViewById (Resource.Id.checkBoxDone);
 			checkBoxDone.Checked = item.IsCompleted;
@@ -67,7 +66,7 @@ namespace TIG.Todo.Android
 				checkBoxDone.CheckedChange += (object sender, CompoundButton.CheckedChangeEventArgs e) => {
 					// figure out item when checkchange happens, not during creation of event handler
 					tasks[position].IsCompleted = checkBoxDone.Checked;
-					this.NotifyDataSetChanged ();					// need to tell the adapter that something happened.
+					textView.SetTextColor(item.IsCompleted ? Color.Green : Color.WhiteSmoke);
 				};
 
 				deleteButton.Click += (object sender, EventArgs e) => {
