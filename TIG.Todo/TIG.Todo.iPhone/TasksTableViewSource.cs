@@ -15,25 +15,35 @@ namespace TIG.Todo.iOS
 		public TasksTableViewSource (UITableView tableView, ObservableCollection<TodoItem> tasks)
 		{
 			this.tasks = tasks;
-			tasks.CollectionChanged += (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) => {
-//				if (e.OldItems != null)
-//				{
-//					NSIndexPath[] oldPaths = e.OldItems.OfType<TodoItem>().Select(oi => NSIndexPath.FromRowSection(tasks.IndexOf(oi), 0)).ToArray();
-//					tableView.DeleteRows(oldPaths, UITableViewRowAnimation.Top);
-//				}
-
-				if (e.NewItems != null)
-				{
-					var newPaths = e.NewItems.OfType<TodoItem>().Select(ni => NSIndexPath.FromRowSection(tasks.Count-1, 0)).ToArray();
-					tableView.InsertRows(newPaths, UITableViewRowAnimation.Top);
-				}
-			};
+			//STEP 1: wire up to the tasks.CollectionChanged event. When new items are added
+			//add them to the tableView
 		}
 
 		public override int RowsInSection (UITableView tableview, int section)
 		{
-			return tasks.Count;
+			//STEP 2: provide a count of the items in the table view
+
 		}
+
+		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+		{
+			//STEP 3: Find the Cell that we are asking for and provide the TextLabel.Text
+			//for the cell so that the Task we just entered is the text for the tableView cell
+		}
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+			//SETP 4: When the row is selected set the IsCompleted flag on the TodoItem
+			//If the ToDo item wasn't completed and we tapped on it, it should now be completed
+			//If it was completed then it should be set to IsCompleted = false
+
+			//STEP 5: If the TodoItem is completed, set the cell.Accessory to Checkmark
+
+			//STEP 6: If the TodoItem is completed make the cell.TextLabel.TextColor to green
+			//Otherwise set it to black
+		}
+
+
 
 		public override bool CanEditRow (UITableView tableView, NSIndexPath indexPath)
 		{
@@ -42,33 +52,10 @@ namespace TIG.Todo.iOS
 
 		public override void CommitEditingStyle (UITableView tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath indexPath)
 		{
-			if (editingStyle == UITableViewCellEditingStyle.Delete) {
-				tasks.RemoveAt (indexPath.Row);
-				tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Top);
-			}
+			//STEP 7: If the editing style was delete then delete the task from the task list and delete the 
+			//actual table row from the tableView
 		}
 
-		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-		{
-			var newIsCompleted = !tasks [indexPath.Row].IsCompleted;
-			tasks [indexPath.Row].IsCompleted = newIsCompleted;
-			var cell = tableView.CellAt (indexPath);
-			cell.Accessory = newIsCompleted ? UITableViewCellAccessory.Checkmark : UITableViewCellAccessory.None;
-			cell.TextLabel.TextColor = newIsCompleted ? UIColor.Green : UIColor.Black;
-		}
-
-		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
-		{
-			// request a recycled cell to save memory
-			const string cellIdentifier = "TableCell";
-			UITableViewCell cell = tableView.DequeueReusableCell (cellIdentifier);
-			// if there are no cells to reuse, create a new one
-			if (cell == null) {
-				cell = new UITableViewCell (UITableViewCellStyle.Default, cellIdentifier);
-			}
-			cell.TextLabel.Text = tasks[indexPath.Row].Text;
-			return cell;
-		}
 	}
 }
 

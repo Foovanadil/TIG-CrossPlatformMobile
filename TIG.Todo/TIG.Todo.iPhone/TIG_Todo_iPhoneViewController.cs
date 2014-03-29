@@ -8,8 +8,6 @@ namespace TIG.Todo.iOS
 {
 	public partial class TIG_Todo_iPhoneViewController : UIViewController
 	{
-		private TaskManager taskManager;
-
 		public TIG_Todo_iPhoneViewController () : base ("TIG_Todo_iPhoneViewController", null)
 		{
 		}
@@ -24,27 +22,18 @@ namespace TIG.Todo.iOS
 
 		public override void ViewDidLoad ()
 		{
-			taskManager = new TaskManager();
+			//STEP 1 : Create a task Manager
+
 			base.ViewDidLoad ();
 
-			addButton.TouchUpInside += (object sender, EventArgs e) => {
-				AddNewTask ();
-			};
+			//STEP 2: Hooks up the addButton TouchUpInside handler so that new tasks are added on TouchUpInside
 
-			newTaskText.EditingDidEnd += (object sender, EventArgs e) => {
-				AddNewTask ();
-			};
-			newTaskText.Delegate = new CatchEnterDelegate ();
+			//STEP 3: Hook up the tableTasks View Source
 
-			tableTasks.Source = new TasksTableViewSource (tableTasks, taskManager.TodoItems);
-		}
+			//OPTIONAL STEP 4: Hook up the EditingDidEnd handler to support Enter key press
 
-		void AddNewTask ()
-		{
-			taskManager.NewTodoItem.Text = newTaskText.Text;
-			taskManager.AddTodoItem ();
-			newTaskText.Text = "";
-		}
+			//OPTIONAL STEP 4: Wire up newTaskText Delegate to use CatchEnterDelegate
+		}	
 	}
 }
 
