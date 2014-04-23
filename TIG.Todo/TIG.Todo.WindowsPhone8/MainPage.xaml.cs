@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using TIG.Todo.Common;
 using TIG.Todo.DataProviders;
+using TIG.Todo.Geofencing;
 using TIG.Todo.WindowsPhone8.Scheduling;
 
 namespace TIG.Todo.WindowsPhone8
@@ -38,5 +39,11 @@ namespace TIG.Todo.WindowsPhone8
             LiveTileHelper.UpdateLiveTile(true, incompleteTodoItems);
             TaskHelper.StartTileUpdaterTask();
         }
+
+        private void ActivateGeofence(object sender, EventArgs e)
+        {
+            GeofencingHelper.TryCreateGeofence();
+        }
+
     }
 }

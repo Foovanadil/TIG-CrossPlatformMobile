@@ -177,6 +177,10 @@
       <Project>{9f97c36b-45cf-4d09-b867-2c7a5623cde1}</Project>
       <Name>TIG.Todo.DataProviders</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TIG.Todo.Geofencing\TIG.Todo.Geofencing.csproj">
+      <Project>{c850bb89-8948-4b7b-93bf-6d4ffdfb4d9b}</Project>
+      <Name>TIG.Todo.Geofencing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TIG.Todo.WindowsPhone8.Scheduling\TIG.Todo.WindowsPhone8.Scheduling.csproj">
       <Project>{85d821ba-d381-4b48-8856-163e4ab0d563}</Project>
       <Name>TIG.Todo.WindowsPhone8.Scheduling</Name>

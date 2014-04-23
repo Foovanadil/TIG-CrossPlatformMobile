@@ -83,6 +83,8 @@
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="pin to start"
                                               Click="ActivateLiveTile" />
+                <shell:ApplicationBarMenuItem Text="set geo reminder"
+                                              Click="ActivateGeofence" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
