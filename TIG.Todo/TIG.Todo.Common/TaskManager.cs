@@ -6,6 +6,19 @@ namespace TIG.Todo.Common
 {
     public class TaskManager
     {
+        public TaskManager()
+        {
+            
+        }
+
+        public TaskManager(TodoItem[] items)
+        {
+            if (items != null)
+            {
+                TodoItems = new ObservableCollection<TodoItem>(items);
+            }
+        }
+
         private ObservableCollection<TodoItem> _todoItems = new ObservableCollection<TodoItem>();
         public ObservableCollection<TodoItem> TodoItems
         {

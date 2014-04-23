@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -113,7 +113,7 @@
     <InterfaceDefinition Include="TIG_Todo_iPhoneViewController.xib" />
     <InterfaceDefinition Include="Resources\TaskTableCellView.xib" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\TIG.Todo.Common\TIG.Todo.Common.csproj">
       <Project>{1CAF09DB-8E44-4079-B40B-C2AF1710664C}</Project>

@@ -5,20 +5,19 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{85D821BA-D381-4B48-8856-163E4AB0D563}</ProjectGuid>
+    <ProjectGuid>{9F97C36B-45CF-4D09-B867-2C7A5623CDE1}</ProjectGuid>
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TIG.Todo.WindowsPhone8.Scheduling</RootNamespace>
-    <AssemblyName>TIG.Todo.WindowsPhone8.Scheduling</AssemblyName>
+    <RootNamespace>TIG.Todo.DataProviders</RootNamespace>
+    <AssemblyName>TIG.Todo.DataProviders</AssemblyName>
     <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <SilverlightApplication>false</SilverlightApplication>
     <ValidateXaml>true</ValidateXaml>
-    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
-    <BackgroundAgentType>AgentLibrary</BackgroundAgentType>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -84,19 +83,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="LiveTileHelper.cs" />
-    <Compile Include="ScheduledAgent.cs" />
+    <Compile Include="DataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TIG.Todo.Common\TIG.Todo.Common.csproj">
-      <Project>{1caf09db-8e44-4079-b40b-c2af1710664c}</Project>
-      <Name>TIG.Todo.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TIG.Todo.DataProviders\TIG.Todo.DataProviders.csproj">
-      <Project>{9f97c36b-45cf-4d09-b867-2c7a5623cde1}</Project>
-      <Name>TIG.Todo.DataProviders</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

@@ -105,6 +105,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="TaskHelper.cs" />
     <Compile Include="TodoListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,14 @@
     <ProjectReference Include="..\TIG.Todo.Common\TIG.Todo.Common.csproj">
       <Project>{884C9D5C-3477-4B8E-8E37-14414A284D69}</Project>
       <Name>TIG.Todo.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TIG.Todo.DataProviders\TIG.Todo.DataProviders.csproj">
+      <Project>{9f97c36b-45cf-4d09-b867-2c7a5623cde1}</Project>
+      <Name>TIG.Todo.DataProviders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TIG.Todo.WindowsPhone8.Scheduling\TIG.Todo.WindowsPhone8.Scheduling.csproj">
+      <Project>{85d821ba-d381-4b48-8856-163e4ab0d563}</Project>
+      <Name>TIG.Todo.WindowsPhone8.Scheduling</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

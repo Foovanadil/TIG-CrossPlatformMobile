@@ -6,7 +6,17 @@ namespace TIG.Todo.WindowsPhone8
 {
     public class TodoListViewModel : Bindable
     {
-        private readonly TaskManager taskManager = new TaskManager();
+        private readonly TaskManager taskManager;
+
+        public TodoListViewModel()
+        {
+            taskManager = new TaskManager();
+        }
+
+        public TodoListViewModel(TodoItem[] items)
+        {
+            taskManager = new TaskManager(items);
+        }
 
         public ObservableCollection<TodoItem> TodoItems
         {
