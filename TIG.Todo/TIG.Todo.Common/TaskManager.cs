@@ -6,18 +6,25 @@ namespace TIG.Todo.Common
 {
     public class TaskManager
     {
-        public TaskManager()
-        {
-            
-        }
+        //TODO: 3.0 - Add two constructors
+        //  The first ctor should be a default ctor and does nothing
+        //  The second ctor should accept an array of TodoItems
+        //      Set the TodoItems to a new instance of ObservableCollection passing in items to it's ctor.
+        
+        #region Solution 3.0
+        //public TaskManager()
+        //{
 
-        public TaskManager(TodoItem[] items)
-        {
-            if (items != null)
-            {
-                TodoItems = new ObservableCollection<TodoItem>(items);
-            }
-        }
+        //}
+
+        //public TaskManager(TodoItem[] items)
+        //{
+        //    if (items != null)
+        //    {
+        //        TodoItems = new ObservableCollection<TodoItem>(items);
+        //    }
+        //} 
+        #endregion
 
         private ObservableCollection<TodoItem> _todoItems = new ObservableCollection<TodoItem>();
         public ObservableCollection<TodoItem> TodoItems

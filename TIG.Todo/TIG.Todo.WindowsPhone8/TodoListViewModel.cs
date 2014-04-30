@@ -6,17 +6,26 @@ namespace TIG.Todo.WindowsPhone8
 {
     public class TodoListViewModel : Bindable
     {
-        private readonly TaskManager taskManager;
+        private readonly TaskManager taskManager = new TaskManager();
 
-        public TodoListViewModel()
-        {
-            taskManager = new TaskManager();
-        }
+        //TODO: 4.0 - Add 2 new ctors and instantiate taskManager in each.
+        //  Don't create taskManager inline.
+        //  First new ctor is a default ctor and instantiates taskManager
+        //  Second new ctor accepts an array of TodoItems and instantiates taskManager passing its ctor the items
 
-        public TodoListViewModel(TodoItem[] items)
-        {
-            taskManager = new TaskManager(items);
-        }
+        #region Solution 4.0
+        //private readonly TaskManager taskManager;
+
+        //public TodoListViewModel()
+        //{
+        //    taskManager = new TaskManager();
+        //}
+
+        //public TodoListViewModel(TodoItem[] items)
+        //{
+        //    taskManager = new TaskManager(items);
+        //} 
+        #endregion
 
         public ObservableCollection<TodoItem> TodoItems
         {
