@@ -77,21 +77,16 @@
         </Grid>
 
     </Grid>
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Minimized">
-            <shell:ApplicationBar.MenuItems>
-                <!--<shell:ApplicationBarMenuItem Text="activate live tile"
-                                              Click="ActivateLiveTile" />-->
-                <shell:ApplicationBarMenuItem Text="set geo reminder"
-                                              Click="ActivateGeofence" />
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
     
-    <!--TODO: 6.0 - Create ApplicationBar with a single MenuItem
+    <!--TODO: 6.0 - Create ApplicationBar with two MenuItems
             Set the Mode property of the ApplicationBar to Minimized
-            Set the Text prop of the MenuItem to "activate live tile"
-            Subscribe to the Click event of the MenuItem using the ApplicationBarMenuItem_Click handler-->
+            First MenuItem        
+                Set the Text prop of the MenuItem to "activate live tile"
+                Subscribe to the Click event of the MenuItem using the ApplicationBarMenuItem_Click handler
+            Second MenuItem        
+                Set the Text prop of the MenuItem to "set geo reminder"
+                Subscribe to the Click event of the MenuItem using the ActivateGeofence handler
+    -->
 
     <!--Solution 6.0-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>
@@ -99,7 +94,9 @@
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="activate live tile"
                                               Click="ApplicationBarMenuItem_Click" />
-            </shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="set geo reminder"
+                                              Click="ActivateGeofence" />
+             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>-->
 

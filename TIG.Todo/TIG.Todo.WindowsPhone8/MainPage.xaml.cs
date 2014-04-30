@@ -67,7 +67,10 @@ namespace TIG.Todo.WindowsPhone8
 
         private void ActivateGeofence(object sender, EventArgs e)
         {
-            GeofencingHelper.TryCreateGeofence();
+            //TODO: 10.10 - Call GeofencingHelper.TryCreateGeofence
+            #region Solution 10.10
+            //GeofencingHelper.TryCreateGeofence(); 
+            #endregion
         }
 
     }
