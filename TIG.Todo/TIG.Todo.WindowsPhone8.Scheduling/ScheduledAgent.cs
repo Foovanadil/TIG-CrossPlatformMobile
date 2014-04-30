@@ -1,4 +1,4 @@
-﻿#define DEBUG_AGENT
+﻿//TODO: 9.5.1 #define DEBUG_AGENT
 
 using Microsoft.Phone.Scheduler;
 using Microsoft.Phone.Shell;
@@ -13,6 +13,8 @@ namespace TIG.Todo.WindowsPhone8.Scheduling
 {
     public class ScheduledAgent : ScheduledTaskAgent
     {
+        //TODO: 9.0 - Implement ScheduledAgent - Used by PeriodicTask
+
         /// <remarks>
         /// ScheduledAgent constructor, initializes the UnhandledException handler
         /// </remarks>
@@ -35,9 +37,31 @@ namespace TIG.Todo.WindowsPhone8.Scheduling
             }
         }
 
-        private static readonly TodoItem[] incompleteItems =
-            DataProvider.RetrieveValue<TodoItem[]>()
-                .Where(t => !t.IsCompleted).ToArray();
+        //TODO: 9.1 - Create static readonly field of array of TodoItems named incompleteItems by calling DataProvider.RetriveValue then selecting only those that are incomplete
+        #region Solution 9.1
+        //private static readonly TodoItem[] incompleteItems = DataProvider.RetrieveValue<TodoItem[]>().Where(t => !t.IsCompleted).ToArray(); 
+        #endregion
+
+        private void NotifyViaToast()
+        {
+            //TODO: 9.2 - Create a ShellToast instance named toast
+            //  Set Title to App name
+            //  Set Content to string.Format("You have {0} incomplete todos.", incompleteItems.Length),
+            //  Set NavigationUri with /MainPage.xaml using UriKind.Relative
+            //  Use the toast by calling toast.Show()
+            
+            #region Solution 9.2
+            //ShellToast toast = new ShellToast
+            //{
+            //    Title = "TIG Todo",
+            //    Content = string.Format("You have {0} incomplete todos.", incompleteItems.Length),
+            //    NavigationUri = new Uri("/MainPage.xaml", UriKind.Relative)
+            //};
+
+            //toast.Show(); 
+            #endregion
+        }
+
 
         /// <summary>
         /// Agent that runs a scheduled task
@@ -50,30 +74,28 @@ namespace TIG.Todo.WindowsPhone8.Scheduling
         /// </remarks>
         protected override void OnInvoke(ScheduledTask task)
         {
-            LiveTileHelper.UpdateLiveTile(false, incompleteItems);
+            //TODO: 9.3 - Call LiveTileHelper.UpdateLiveTile passing false and incompleteItems
+          
+            #region Solution 9.3
+            //LiveTileHelper.UpdateLiveTile(false, incompleteItems); 
+            #endregion
 
-            NotifyViaToast();
+            //TODO: 9.4 - Call NotifyViaToast
+            #region Solution 9.4
+            //NotifyViaToast(); 
+            #endregion
 
-#if DEBUG_AGENT
-            TodoItem[] allItems = DataProvider.RetrieveValue<TodoItem[]>().Concat(new []{ new TodoItem{ Text = "from test..." }}).ToArray();
-            bool successfullySaved = DataProvider.SaveValue<TodoItem[]>(allItems);
-
-            ScheduledActionService.LaunchForTest(task.Name, TimeSpan.FromSeconds(30));
+            //TODO: 9.5.0 - Define DEBUG_AGENT at the top of the file (see 9.5.1) (hint 8.5.0)
+#if(DEBUG_AGENT)
+            //TODO: 9.6 - Launch the PeriodicTask every 60 seconds
+            //  Use following code:
+            //  TodoItem[] allItems = DataProvider.RetrieveValue<TodoItem[]>().Concat(new[] { new TodoItem { Text = "from test..." } }).ToArray();
+            //  bool successfullySaved = DataProvider.SaveValue<TodoItem[]>(allItems);
+            //  ScheduledActionService.LaunchForTest(task.Name, TimeSpan.FromSeconds(30));
 #endif
 
             NotifyComplete();
         }
 
-        private void NotifyViaToast()
-        {
-            ShellToast toast = new ShellToast
-            {
-                Title = "TIG Todo",
-                Content = string.Format("You have {0} incomplete todos.", incompleteItems.Length),
-                NavigationUri = new Uri("/MainPage.xaml", UriKind.Relative)
-            };
-
-            toast.Show();
-        }
     }
 }
