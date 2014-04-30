@@ -12,10 +12,12 @@ namespace TIG.Todo.WindowsPhone8
 {
     public static class TaskHelper
     {
-        private static readonly string TILE_UPDATER_TASK_NAME = "TIG.Todo.TILE_UPDATER_TASK_NAME";
+        private static readonly string TILE_UPDATER_TASK_NAME = 
+            "TIG.Todo.TILE_UPDATER_TASK_NAME";
         public static void StartTileUpdaterTask()
         {
-            PeriodicTask existingTileUpdaterTask = ScheduledActionService.Find(TILE_UPDATER_TASK_NAME) as PeriodicTask;
+            PeriodicTask existingTileUpdaterTask = 
+                ScheduledActionService.Find(TILE_UPDATER_TASK_NAME) as PeriodicTask;
             if (existingTileUpdaterTask != null)
             {
                 try

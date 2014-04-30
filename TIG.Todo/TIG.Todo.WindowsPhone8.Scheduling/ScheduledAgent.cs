@@ -35,7 +35,9 @@ namespace TIG.Todo.WindowsPhone8.Scheduling
             }
         }
 
-        private static readonly TodoItem[] incompleteItems = DataProvider.RetrieveValue<TodoItem[]>().Where(t => !t.IsCompleted).ToArray();
+        private static readonly TodoItem[] incompleteItems =
+            DataProvider.RetrieveValue<TodoItem[]>()
+                .Where(t => !t.IsCompleted).ToArray();
 
         /// <summary>
         /// Agent that runs a scheduled task

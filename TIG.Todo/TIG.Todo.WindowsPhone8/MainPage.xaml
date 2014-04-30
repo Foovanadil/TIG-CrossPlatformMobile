@@ -79,9 +79,9 @@
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar>
+        <shell:ApplicationBar Mode="Minimized">
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="pin to start"
+                <shell:ApplicationBarMenuItem Text="activate live tile"
                                               Click="ActivateLiveTile" />
                 <shell:ApplicationBarMenuItem Text="set geo reminder"
                                               Click="ActivateGeofence" />
