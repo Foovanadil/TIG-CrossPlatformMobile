@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using Android.Views;
 using Android.Graphics;
 
-namespace TIG.Todo.Android
+namespace TIG.Todo.AndroidApp
 {
 	public class TaskListAdapter : BaseAdapter<TodoItem> {
 		protected Activity context = null;

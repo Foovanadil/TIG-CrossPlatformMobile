@@ -10,7 +10,7 @@ using TIG.Todo.Common;
 using Android.Content.PM;
 using TIG.Todo.Common.SQLite;
 
-namespace TIG.Todo.Android
+namespace TIG.Todo.AndroidApp
 {
 	[Activity (Label = "TIG.Todo.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
 	public class MainActivity : Activity
@@ -46,6 +46,9 @@ namespace TIG.Todo.Android
 			var taskListView = FindViewById<ListView> (Resource.Id.listTasks);
 			var taskListAdapter = new TaskListAdapter (this, taskManager);
 			taskListView.Adapter = taskListAdapter;
+
+			Intent intent = new Intent(this, typeof(GeofencingHelper));
+			StartService(intent);
 		}
 
 //		protected override void OnResume ()
