@@ -6,7 +6,6 @@ using System;
 using System.Diagnostics;
 using System.Windows;
 using TIG.Todo.Common;
-using TIG.Todo.DataProviders;
 using System.Linq;
 
 namespace TIG.Todo.WindowsPhone8.Scheduling

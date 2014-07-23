@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using TIG.Todo.Common;
+using TIG.Todo.Common.SQLite;
 
 namespace TIG.Todo.iOS
 {
@@ -24,7 +26,15 @@ namespace TIG.Todo.iOS
 
 		public override void ViewDidLoad ()
 		{
-			taskManager = new TaskManager();
+			var sqliteFilename = "TaskDB.db3";
+			// we need to put in /Library/ on iOS5.1 to meet Apple's iCloud terms
+			// (they don't want non-user-generated data in Documents)
+			string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // Documents folder
+			string libraryPath = Path.Combine(documentsPath, "../Library/"); // Library folder
+			var path = Path.Combine(libraryPath, sqliteFilename);
+			var conn = new Connection(path);
+			var taskRepository = new TaskRepository(conn, "");
+			taskManager = new TaskManager(taskRepository);
 			base.ViewDidLoad ();
 
 			addButton.TouchUpInside += (object sender, EventArgs e) => {
@@ -36,7 +46,7 @@ namespace TIG.Todo.iOS
 			};
 			newTaskText.Delegate = new CatchEnterDelegate ();
 
-			tableTasks.Source = new TasksTableViewSource (tableTasks, taskManager.TodoItems);
+			tableTasks.Source = new TasksTableViewSource (tableTasks, taskManager);
 		}
 
 		void AddNewTask ()

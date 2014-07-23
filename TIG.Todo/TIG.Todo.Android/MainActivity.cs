@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -7,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using TIG.Todo.Common;
 using Android.Content.PM;
+using TIG.Todo.Common.SQLite;
 
 namespace TIG.Todo.Android
 {
@@ -19,7 +21,13 @@ namespace TIG.Todo.Android
 		{
 			base.OnCreate (bundle);
 
-			taskManager = new TaskManager();
+			var sqliteFilename = "TaskDB.db3";
+			string libraryPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+			var path = Path.Combine(libraryPath, sqliteFilename);
+			var conn = new Connection(path);
+
+			var taskRepository = new TaskRepository(conn, "");
+			taskManager = new TaskManager(taskRepository);
 
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
@@ -36,7 +44,7 @@ namespace TIG.Todo.Android
 			};
 
 			var taskListView = FindViewById<ListView> (Resource.Id.listTasks);
-			var taskListAdapter = new TaskListAdapter (this, taskManager.TodoItems);
+			var taskListAdapter = new TaskListAdapter (this, taskManager);
 			taskListView.Adapter = taskListAdapter;
 		}
 

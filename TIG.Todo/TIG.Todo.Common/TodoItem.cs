@@ -1,9 +1,13 @@
 ﻿using System.Diagnostics;
+using TIG.TODO.Common.SQLite;
 
 namespace TIG.Todo.Common
 {
-    public class TodoItem : Bindable
+    public class TodoItem : Bindable, IHaveID
     {
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; set; }
+
         private string _text;
         public string Text
         {

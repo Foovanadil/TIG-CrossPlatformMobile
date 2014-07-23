@@ -5,7 +5,7 @@
                             xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                            xmlns:windowsPhone8="clr-namespace:TIG.Todo.WindowsPhone8"
+                            xmlns:local="clr-namespace:TIG.Todo.WindowsPhone8"
                             mc:Ignorable="d"
                             FontFamily="{StaticResource PhoneFontFamilyNormal}"
                             FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -14,7 +14,7 @@
                             Orientation="Landscape"
                             shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
-        <windowsPhone8:CompletedToForegroundColor x:Key="CompletedToForegroundColor" />
+        <local:CompletedToForegroundColor x:Key="CompletedToForegroundColor" />
     </phone:PhoneApplicationPage.Resources>
     <!--<phone:PhoneApplicationPage.DataContext>
         <windowsPhone8:TodoListViewModel />
@@ -77,15 +77,26 @@
         </Grid>
 
     </Grid>
+    
+    <!--TODO: 6.0 - Create ApplicationBar with two MenuItems
+            Set the Mode property of the ApplicationBar to Minimized
+            First MenuItem        
+                Set the Text prop of the MenuItem to "activate live tile"
+                Subscribe to the Click event of the MenuItem using the ApplicationBarMenuItem_Click handler
+            Second MenuItem        
+                Set the Text prop of the MenuItem to "set geo reminder"
+                Subscribe to the Click event of the MenuItem using the ActivateGeofence handler
+    -->
 
+    <!--Solution 6.0-->
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar Mode="Minimized">
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="activate live tile"
-                                              Click="ActivateLiveTile" />
+                                              Click="ApplicationBarMenuItem_Click" />
                 <shell:ApplicationBarMenuItem Text="set geo reminder"
                                               Click="ActivateGeofence" />
-            </shell:ApplicationBar.MenuItems>
+             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
