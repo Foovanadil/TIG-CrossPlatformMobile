@@ -100,9 +100,11 @@ namespace TIG.Todo.AndroidApp
 				.SetExpirationDuration (99999)
 				.Build ();
 
-			var pendingIntent = PendingIntent.GetService (this, 0, new Intent (this, typeof(GeofencingHelper)), PendingIntentFlags.UpdateCurrent);
-			client.AddGeofences(new List<IGeofence>() { fence } ,pendingIntent,this);
+			var intent = new Intent (this, typeof(GeoFenceIntentHandler));
 
+			var pendingIntent = PendingIntent.GetService (this, 0, intent, PendingIntentFlags.UpdateCurrent);
+
+			client.AddGeofences(new List<IGeofence>() { fence } ,pendingIntent,this);
 		}
 
 		public void OnAddGeofencesResult (int statusCode, string[] geofenceRequestIds)
@@ -147,6 +149,33 @@ namespace TIG.Todo.AndroidApp
 		}
 
 		#endregion
+
+	}
+	[Service]
+	public class GeoFenceIntentHandler : IntentService
+	{
+
+		protected override void OnHandleIntent (Intent intent)
+		{
+			int transition = LocationClient.GetGeofenceTransition(intent);
+
+			// Test that a valid transition was reported
+			if (transition == Geofence.GeofenceTransitionExit) {
+				// Post a notification
+				//List<Geofence> geofences = LocationClient.GetTriggeringGeofences (intent);
+
+				//String[] geofenceIds = new String[geofences.Count];
+//				for (int index = 0; index < geofences.Count; index++) {
+//					geofenceIds [index] = geofences [index].GetRequestId ();
+//				}
+
+				//String ids = string.Join (GeofenceConsts.GEOFENCE_ID_DELIMITER, geofenceIds);
+				//String transitionType = getTransitionString (transition);
+			}
+		}
+
+
+
 
 	}
 }
