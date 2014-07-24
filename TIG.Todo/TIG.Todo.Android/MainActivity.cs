@@ -1,9 +1,6 @@
-using System;
 using System.IO;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using Android.OS;
 using TIG.Todo.Common;
@@ -41,14 +38,15 @@ namespace TIG.Todo.AndroidApp
 				taskManager.NewTodoItem.Text = todoText.Text;
 				taskManager.AddTodoItem();
 				todoText.Text = "";
+				StartService(new Intent(CustomActions.TODO_SET_GEOFENCE));
+
 			};
 
 			var taskListView = FindViewById<ListView> (Resource.Id.listTasks);
 			var taskListAdapter = new TaskListAdapter (this, taskManager);
 			taskListView.Adapter = taskListAdapter;
 
-			Intent intent = new Intent(this, typeof(GeofencingHelper));
-			StartService(intent);
+			StartService(new Intent(CustomActions.TODO_START_LOCATION_MONITORING));
 		}
 
 //		protected override void OnResume ()
