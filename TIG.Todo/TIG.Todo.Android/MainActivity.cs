@@ -46,6 +46,7 @@ namespace TIG.Todo.AndroidApp
 			var taskListAdapter = new TaskListAdapter (this, taskManager);
 			taskListView.Adapter = taskListAdapter;
 
+			//Intent intent = new Intent (this, typeof(GeofencingHelper));
 			StartService(new Intent(CustomActions.TODO_START_LOCATION_MONITORING));
 		}
 

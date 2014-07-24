@@ -10,7 +10,9 @@ using Android.App;
 namespace TIG.Todo.AndroidApp
 {
 	[Service]
-	[IntentFilter(new[] { CustomActions.TODO_START_LOCATION_MONITORING, CustomActions.TODO_SET_GEOFENCE })]
+	[IntentFilter(new[] { 
+		CustomActions.TODO_START_LOCATION_MONITORING, 
+		CustomActions.TODO_SET_GEOFENCE })]
 	public class GeofencingHelper : Service, Android.Locations.ILocationListener
 		//, IGooglePlayServicesClientConnectionCallbacks
 		//, IGooglePlayServicesClientOnConnectionFailedListener
@@ -100,8 +102,10 @@ namespace TIG.Todo.AndroidApp
 			if (!isWithinRadius)
 			{
 				var intent = new Intent(CustomActions.TODO_WITHIN_PROXIMITY);
-				PendingIntent pendingIntent = PendingIntent.GetService(this, 0, intent, PendingIntentFlags.UpdateCurrent);
-				_locationManager.AddProximityAlert(currentLatitude, currentLongitude, radiusInMeters, -1, pendingIntent);
+				PendingIntent pendingIntent = PendingIntent.GetService(this, 0, intent, 
+					PendingIntentFlags.UpdateCurrent);
+				_locationManager.AddProximityAlert(currentLatitude, currentLongitude, 
+					radiusInMeters, -1, pendingIntent);
 			}
 		}
 	}
